@@ -87,6 +87,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="directoryCell"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="6IB-Mg-wK1" id="Sq5-jp-54D"/>
+                                    <outlet property="profilePic" destination="ltF-jN-hma" id="tKI-4R-0Ta"/>
+                                    <segue destination="djf-l8-oNC" kind="show" id="CT0-Fi-lp0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>

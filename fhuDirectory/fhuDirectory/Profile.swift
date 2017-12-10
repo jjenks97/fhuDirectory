@@ -1,14 +1,14 @@
 //
-//  directoryProfile.swift
+//  Profile.swift
 //  fhuDirectory
 //
-//  Created by CIS Student on 12/4/17.
+//  Created by CIS Student on 12/10/17.
 //  Copyright © 2017 Jonathan. All rights reserved.
 //
 
 import Foundation
 
-public class DirectoryProfile {
+public class Profile {
     var name: String?
     var phone: String?
     var email: String?
@@ -31,4 +31,3 @@ public class DirectoryProfile {
         self.isStudent = isStudent
     }
 }
-
