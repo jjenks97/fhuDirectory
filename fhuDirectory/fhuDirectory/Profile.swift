@@ -28,6 +28,7 @@ public class Profile {
         self.boxNum = boxNum
         self.birthday = birthday
         self.imageName = imageName
+        self.dorm = dorm
         //self.isStudent = isStudent
     }
 }
