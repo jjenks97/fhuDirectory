@@ -8,25 +8,39 @@
 
 import UIKit
 
-class directoryProfile: UIViewController {
+class directoryProfile: UIViewController{
     
     var profile: Profile?
 
-    @IBOutlet weak var profileContents: UILabel!
+    
+    @IBOutlet weak var birthdayLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var dormLabel: UILabel!
+    @IBOutlet weak var boxLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         navigationItem.title = profile?.name
+        emailLabel.text = profile?.email
+        boxLabel.text = profile?.boxNum
+        dormLabel.text = profile?.dorm
+        birthdayLabel.text = profile?.birthday
+        phoneLabel.text = profile?.phone
+    
         if let imageName = profile?.imageName {
             profileImage.image = UIImage(named: imageName)
         }
         
-
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
