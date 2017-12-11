@@ -11,8 +11,21 @@ import UIKit
 class DirectoryTableViewController: UITableViewController {
     
     var data: [Profile]? = DataSet.sampleData
-    /*override func viewDidLoad() {
+    
+    
+    var searchController : UISearchController!
+    var resultsController = UITableViewController()
+    
+    //var filteredProfiles = [Profile]()
+    override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //self.resultsController.tableView.dataSource = self
+        //self.resultsController.tableView.delegate = self
+        
+        self.searchController = UISearchController(searchResultsController: self.resultsController)
+        self.tableView.tableHeaderView = self.searchController.searchBar
+        //self.searchController.searchResultsUpdater = self
         
         
 
@@ -21,6 +34,18 @@ class DirectoryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+   /* func updateSearchResultsForSearchController(searchController: UISearchController) {
+        self.data?.filter { (name:Profile) -> Bool in
+            if name.containsString(self.searchController.searchBar.text) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        self.resultsController.tableView.reloadData()
     }*/
 
     /*override func didReceiveMemoryWarning() {
@@ -59,30 +84,12 @@ class DirectoryTableViewController: UITableViewController {
                 else {
                     directoryCell.profilePic.image = nil
                 }
-               /* if let imageURL = profile.imageURL {
-                    loadImageViewAsyc(imageURL: imageURL, imageView: directoryCell.profilePic)
-                }*/
             }
         }
 
         return cell
  
     }
-    
-   /* func loadImageViewAsyc( imageURL: String, imageView: UIImageView) {
-        if let url = URL(string: imageURL) {
-            let dataTask = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
-                if let error = error {
-                    print("ERROR: \(error.localizedDescription)")
-                } else if let data = data {
-                    DispatchQueue.main.async {
-                        imageView.image = UIImage(data: data)
-                    }
-                }
-            }
-            dataTask.resume()
-        }
-    }*/
 
     /*
     // Override to support conditional editing of the table view.

@@ -12,6 +12,7 @@ class directoryProfile: UIViewController {
     
     var profile: Profile?
 
+    @IBOutlet weak var profileContents: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
@@ -21,6 +22,7 @@ class directoryProfile: UIViewController {
         if let imageName = profile?.imageName {
             profileImage.image = UIImage(named: imageName)
         }
+        
 
         // Do any additional setup after loading the view.
     }
