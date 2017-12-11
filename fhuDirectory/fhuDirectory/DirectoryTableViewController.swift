@@ -10,24 +10,23 @@ import UIKit
 
 class DirectoryTableViewController: UITableViewController {
     
-    var data: [Profile]?
-
-    override func viewDidLoad() {
+    var data: [Profile]? = DataSet.sampleData
+    /*override func viewDidLoad() {
         super.viewDidLoad()
         
-        data = DataSet.sampleData
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+    }*/
 
-    override func didReceiveMemoryWarning() {
+    /*override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }*/
 
     // MARK: - Table view data source
 
@@ -37,8 +36,9 @@ class DirectoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return data?.count ?? 0
+        
     }
 
     
@@ -52,19 +52,37 @@ class DirectoryTableViewController: UITableViewController {
                 
                 directoryCell.nameLabel?.text = profile.name
                 
-                if let imageName = profile.image {
+                if let imageName = profile.imageName {
                     directoryCell.profilePic?.image = UIImage(named: imageName)
                 }
                 
                 else {
                     directoryCell.profilePic.image = nil
                 }
+               /* if let imageURL = profile.imageURL {
+                    loadImageViewAsyc(imageURL: imageURL, imageView: directoryCell.profilePic)
+                }*/
             }
         }
 
         return cell
+ 
     }
     
+   /* func loadImageViewAsyc( imageURL: String, imageView: UIImageView) {
+        if let url = URL(string: imageURL) {
+            let dataTask = URLSession(configuration: .default).dataTask(with: url) { (data, response, error) in
+                if let error = error {
+                    print("ERROR: \(error.localizedDescription)")
+                } else if let data = data {
+                    DispatchQueue.main.async {
+                        imageView.image = UIImage(data: data)
+                    }
+                }
+            }
+            dataTask.resume()
+        }
+    }*/
 
     /*
     // Override to support conditional editing of the table view.
@@ -101,14 +119,25 @@ class DirectoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if let identifier = segue.identifier {
+            if identifier == "directorySegue" {
+                if let dpvc = segue.destination as? directoryProfile,
+                let cell = sender as? UITableViewCell,
+                    let data = data {
+                    if let indexPath = tableView.indexPath(for: cell) {
+                        dpvc.profile = data[indexPath.row]
+                    }
+            }
+        }
     }
-    */
-
+    
+    }
 }

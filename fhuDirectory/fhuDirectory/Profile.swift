@@ -15,11 +15,11 @@ public class Profile {
     var boxNum: String?
     var dorm: String?
     var birthday: String?
-    var image: String?
-    var isStudent: Bool?
+    var imageName: String?
+    //var isStudent: Bool?
     
     
-    convenience init (name: String, phone: String, email: String, boxNum: String, dorm: String, birthday: String, image: String, isStudent: Bool) {
+    convenience init (name: String, phone: String, email: String, boxNum: String, dorm: String, birthday: String, imageName: String) {
         self.init()
         
         self.name = name
@@ -27,7 +27,7 @@ public class Profile {
         self.email = email
         self.boxNum = boxNum
         self.birthday = birthday
-        self.image = image
-        self.isStudent = isStudent
+        self.imageName = imageName
+        //self.isStudent = isStudent
     }
 }

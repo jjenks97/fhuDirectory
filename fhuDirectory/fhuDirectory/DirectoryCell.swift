@@ -11,9 +11,9 @@ import UIKit
 class DirectoryCell: UITableViewCell {
     
     
-    @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var profilePic: UIImageView!
+    
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
