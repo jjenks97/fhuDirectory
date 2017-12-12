@@ -191,7 +191,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7ps-Az-Ivm"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="iIG-Ic-txD"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="icon-profile" id="iIG-Ic-txD"/>
                     <connections>
                         <outlet property="birthdayLabel" destination="ryO-2F-l3c" id="sgr-X7-i3a"/>
                         <outlet property="boxLabel" destination="qhA-Hq-x9J" id="f2G-Zl-d7g"/>
@@ -266,6 +266,7 @@
                                 <connections>
                                     <outlet property="className" destination="AEC-Ko-15r" id="1sf-Vh-yy7"/>
                                     <outlet property="classNumber" destination="hJ5-IW-oQ6" id="ell-cM-zm6"/>
+                                    <segue destination="WKQ-No-EJf" kind="show" identifier="classesSegue" id="Tcm-vv-GDd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -274,12 +275,66 @@
                             <outlet property="delegate" destination="8U7-Dn-qgR" id="PxT-wO-wqu"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Classes" id="hM6-hy-UXj"/>
+                    <tabBarItem key="tabBarItem" title="Classes" image="book" id="hM6-hy-UXj"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Az5-g4-yk8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2591.1999999999998" y="-593.25337331334333"/>
+        </scene>
+        <!--Class Roster Table View Controller-->
+        <scene sceneID="8PN-pN-Qvh">
+            <objects>
+                <tableViewController id="WKQ-No-EJf" customClass="ClassRosterTableViewController" customModule="fhuDirectory" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="net-dA-7Ev">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="rosterCell" rowHeight="185" id="yGI-16-RuC" customClass="ClassRosterTableViewCell" customModule="fhuDirectory" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="185"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yGI-16-RuC" id="EYd-uo-UB4">
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="184.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Isn-Tr-ftn">
+                                            <rect key="frame" x="16" y="20" width="138" height="146"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ao9-Nu-HYu">
+                                            <rect key="frame" x="217" y="82" width="116" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ao9-Nu-HYu" secondAttribute="trailing" constant="8" id="3x4-QL-Adq"/>
+                                        <constraint firstAttribute="trailing" secondItem="Isn-Tr-ftn" secondAttribute="trailing" constant="187" id="5Qh-ZX-ovy"/>
+                                        <constraint firstItem="Isn-Tr-ftn" firstAttribute="leading" secondItem="EYd-uo-UB4" secondAttribute="leading" constant="16" id="JPG-kQ-bmj"/>
+                                        <constraint firstItem="ao9-Nu-HYu" firstAttribute="top" secondItem="EYd-uo-UB4" secondAttribute="top" constant="82" id="ZqB-IJ-VLm"/>
+                                        <constraint firstItem="ao9-Nu-HYu" firstAttribute="leading" secondItem="EYd-uo-UB4" secondAttribute="leading" constant="217" id="aHf-V4-7LA"/>
+                                        <constraint firstItem="Isn-Tr-ftn" firstAttribute="top" secondItem="EYd-uo-UB4" secondAttribute="top" constant="20" id="jKe-xs-bo9"/>
+                                        <constraint firstAttribute="bottom" secondItem="ao9-Nu-HYu" secondAttribute="bottom" constant="81.5" id="o17-EB-Cg2"/>
+                                        <constraint firstAttribute="bottom" secondItem="Isn-Tr-ftn" secondAttribute="bottom" constant="18.5" id="y57-IV-Re8"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="rosterName" destination="ao9-Nu-HYu" id="BbY-28-YoT"/>
+                                    <outlet property="rosterPic" destination="Isn-Tr-ftn" id="do9-hd-Thy"/>
+                                    <segue destination="djf-l8-oNC" kind="show" identifier="rosterSegue" id="bdJ-dm-6lQ"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="WKQ-No-EJf" id="004-VJ-Lqm"/>
+                            <outlet property="delegate" destination="WKQ-No-EJf" id="g57-fg-8Ne"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9VX-XQ-tTd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3687.1999999999998" y="-597.75112443778119"/>
         </scene>
         <!--Directory Profile-->
         <scene sceneID="vUN-8R-S3a">
@@ -320,7 +375,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pvF-c9-Pj2">
-                                <rect key="frame" x="76" y="64" width="222" height="248"/>
+                                <rect key="frame" x="76" y="64" width="222" height="199"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -380,6 +435,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="book" width="36" height="36"/>
+        <image name="icon-profile" width="36" height="36"/>
         <image name="jonathan" width="81" height="101"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="bdJ-dm-6lQ"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -24,6 +24,8 @@
 		D49C3B671FDFD12D00E77270 /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C3B661FDFD12D00E77270 /* Classes.swift */; };
 		D49C3B691FDFD66700E77270 /* ClassesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C3B681FDFD66700E77270 /* ClassesTableViewCell.swift */; };
 		D49C3B6B1FDFD68200E77270 /* ClassesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C3B6A1FDFD68200E77270 /* ClassesTableViewController.swift */; };
+		D49C3B6D1FDFDE8C00E77270 /* ClassRosterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C3B6C1FDFDE8C00E77270 /* ClassRosterTableViewController.swift */; };
+		D49C3B6F1FDFDEA800E77270 /* ClassRosterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49C3B6E1FDFDEA800E77270 /* ClassRosterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		D49C3B661FDFD12D00E77270 /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		D49C3B681FDFD66700E77270 /* ClassesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewCell.swift; sourceTree = "<group>"; };
 		D49C3B6A1FDFD68200E77270 /* ClassesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesTableViewController.swift; sourceTree = "<group>"; };
+		D49C3B6C1FDFDE8C00E77270 /* ClassRosterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRosterTableViewController.swift; sourceTree = "<group>"; };
+		D49C3B6E1FDFDEA800E77270 /* ClassRosterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassRosterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				D48013271FB44FA30066EEE8 /* AppDelegate.swift */,
 				D48013291FB44FA30066EEE8 /* ViewController.swift */,
 				D480132B1FB44FA30066EEE8 /* Main.storyboard */,
+				D49C3B6C1FDFDE8C00E77270 /* ClassRosterTableViewController.swift */,
+				D49C3B6E1FDFDEA800E77270 /* ClassRosterTableViewCell.swift */,
 				D49C3B6A1FDFD68200E77270 /* ClassesTableViewController.swift */,
 				D49C3B681FDFD66700E77270 /* ClassesTableViewCell.swift */,
 				D49C3B661FDFD12D00E77270 /* Classes.swift */,
@@ -296,11 +302,13 @@
 				D49C3B6B1FDFD68200E77270 /* ClassesTableViewController.swift in Sources */,
 				D48013281FB44FA30066EEE8 /* AppDelegate.swift in Sources */,
 				D49C3B651FDFB23F00E77270 /* userInfoCell.swift in Sources */,
+				D49C3B6D1FDFDE8C00E77270 /* ClassRosterTableViewController.swift in Sources */,
 				D40351D01FDD2409008F47F5 /* Profile.swift in Sources */,
 				D40351CC1FDBEC4D008F47F5 /* DirectoryCell.swift in Sources */,
 				D49C3B691FDFD66700E77270 /* ClassesTableViewCell.swift in Sources */,
 				D49C3B671FDFD12D00E77270 /* Classes.swift in Sources */,
 				D40351C81FD5E94C008F47F5 /* DataSet.swift in Sources */,
+				D49C3B6F1FDFDEA800E77270 /* ClassRosterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

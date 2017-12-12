@@ -1,5 +1,5 @@
 //
-//  ClassesTableViewController.swift
+//  ClassRosterTableViewController.swift
 //  fhuDirectory
 //
 //  Created by CIS Student on 12/12/17.
@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ClassesTableViewController: UITableViewController {
+class ClassRosterTableViewController: UITableViewController {
+    var classes: Classes?
     
-    var classData: [Classes]? = DataSet.classes
-
+    var members: [Profile]?
+    
+    var searchController : UISearchController!
+    var resultsController = UITableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        members = classes?.members
+        
+        
+        self.searchController = UISearchController(searchResultsController: self.resultsController)
+        self.tableView.tableHeaderView = self.searchController.searchBar
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,28 +44,32 @@ class ClassesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return classData?.count ?? 0
+        return members?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "classesCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "rosterCell", for: indexPath)
         
-        if let classesCell = cell as? ClassesTableViewCell {
-            if let realClassData = classData {
-                let classes = realClassData[indexPath.row]
+        if let rosterCell = cell as? ClassRosterTableViewCell {
+            if let rosterData = members {
+                let roster = rosterData[indexPath.row]
                 
-                classesCell.className?.text = classes.name
-                let numberofMembers : Int = (classes.members?.count)!
-                classesCell.classNumber?.text = String(numberofMembers)
+                rosterCell.rosterName?.text = roster.name
+                if let imageName = roster.imageName {
+                    rosterCell.rosterPic?.image = UIImage(named: imageName)
+                }
+                else {
+                    rosterCell.rosterPic.image = nil
+                }
             }
         }
 
-        
+        // Configure the cell...
 
         return cell
     }
-    
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -99,16 +111,13 @@ class ClassesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
         if let identifier = segue.identifier {
-            if identifier == "classesSegue" {
-                if let cvc = segue.destination as? ClassRosterTableViewController,
+            if identifier == "rosterSegue" {
+                if let dpvc = segue.destination as? directoryProfile,
                 let cell = sender as? UITableViewCell,
-                    let classData = classData {
+                    let members = members {
                     if let indexPath = tableView.indexPath(for: cell) {
-                        cvc.classes = classData[indexPath.row]
+                        dpvc.profile = members[indexPath.row]
                     }
             }
         }
