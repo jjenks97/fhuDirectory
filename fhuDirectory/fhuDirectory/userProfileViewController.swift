@@ -1,5 +1,5 @@
 //
-//  directoryProfile.swift
+//  userProfileViewController.swift
 //  fhuDirectory
 //
 //  Created by CIS Student on 12/11/17.
@@ -8,44 +8,41 @@
 
 import UIKit
 
-class directoryProfile: UIViewController{
+class userProfileViewController: UIViewController {
     
-    var profile: Profile?
     
-
+    var userData: Profile? = DataSet.user
+    
+    
+    
+    
+    @IBOutlet weak var emailLabel: UILabel!
     
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var dormLabel: UILabel!
     @IBOutlet weak var boxLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
-    
+    @IBOutlet weak var userProfilePic: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        navigationItem.title = profile?.name
-        emailLabel.text = "Email: " + (profile?.email)!
-        boxLabel.text = "Box: " + (profile?.boxNum)!
-        dormLabel.text = "Dorm: " +  (profile?.dorm)!
-        birthdayLabel.text =  "Birthday: " + (profile?.birthday)!
-        phoneLabel.text = "Phone: " + (profile?.phone)!
-    
-        if let imageName = profile?.imageName {
-            profileImage.image = UIImage(named: imageName)
+        emailLabel.text = "Email: " + (userData?.email)!
+        phoneLabel.text = "Phone: " + (userData?.phone)!
+        dormLabel.text = "Dorm: " + (userData?.dorm)!
+        boxLabel.text = "Box: " + (userData?.boxNum)!
+        birthdayLabel.text = "Birthday: " + (userData?.birthday)!
+        if let imageName = userData?.imageName {
+            userProfilePic.image = UIImage(named: imageName)
         }
-        
-        
+            
         
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
+    
+    /* override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }*/
     
 
     /*
