@@ -19,6 +19,7 @@ class ClassRosterTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         members = classes?.members
+        navigationItem.title = "Class Roster"
         
         
         self.searchController = UISearchController(searchResultsController: self.resultsController)

@@ -12,14 +12,13 @@ class DirectoryTableViewController: UITableViewController {
     
     var data: [Profile]? = DataSet.sampleData
     
-    
     var searchController : UISearchController!
     var resultsController = UITableViewController()
     
     //var filteredProfiles = [Profile]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "Directory"
         //self.resultsController.tableView.dataSource = self
         //self.resultsController.tableView.delegate = self
         
@@ -36,23 +35,11 @@ class DirectoryTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-   /* func updateSearchResultsForSearchController(searchController: UISearchController) {
-        self.data?.filter { (name:Profile) -> Bool in
-            if name.containsString(self.searchController.searchBar.text) {
-                return true
-            }
-            else {
-                return false
-            }
-        }
-        self.resultsController.tableView.reloadData()
-    }*/
 
     /*override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }*/
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

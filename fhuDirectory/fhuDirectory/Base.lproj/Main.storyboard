@@ -187,11 +187,21 @@
                                 <rect key="frame" x="291" y="535" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Mw-6m-dRe">
+                                <rect key="frame" x="151" y="318" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="Dkx-8O-aPU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7ps-Az-Ivm"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="icon-profile" id="iIG-Ic-txD"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="birthdayLabel" destination="ryO-2F-l3c" id="sgr-X7-i3a"/>
                         <outlet property="boxLabel" destination="qhA-Hq-x9J" id="f2G-Zl-d7g"/>
